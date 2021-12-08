@@ -1,7 +1,12 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
+// Question: 
+
+int main() 
 {
-	cout << "Hello world" << endl;
+   ios::sync_with_stdio(0);
+   cin.tie(0);
+
+  
 }

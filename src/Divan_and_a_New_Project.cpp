@@ -26,30 +26,42 @@ int main()
             a[i] = {times, i + 1};
         }
 
+        // cout << "Before sort: \n";
+        // for(auto i : a) 
+        // {
+        //     cout << setw(2) << i.first << "|" << i.second << endl;
+        // }
+
         sort(a.rbegin(), a.rend());
+
+        // cout << "After sort: \n";
+        // for(auto i : a) 
+        // {
+        //     cout << setw(2) << i.first << "|" << i.second << endl;
+        // }
 
         vector<int> x(n + 1);
         x[0] = 0;
 
         long long nextDist = 1;
-        bool pos = true;
+        bool swapSide = true;
 
         long long totalDist = 0;
 
         for (unsigned int i = 0; i < n; i++)
         {
-            if(pos)
+            if(swapSide)
             {
                 x[a[i].second] = nextDist;
-                totalDist += nextDist * abs(2 * a[i].first);
+                totalDist += nextDist * 2 * a[i].first;
             }
             else
             {
                 x[a[i].second] = nextDist * -1;
-                totalDist += nextDist * abs(2 * a[i].first);
+                totalDist += nextDist * 2 * a[i].first;
                 nextDist++;
             }
-            pos = !pos;
+            swapSide = !swapSide;
         }
 
         cout << totalDist << "\n";
