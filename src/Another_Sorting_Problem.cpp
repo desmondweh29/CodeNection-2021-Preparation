@@ -23,8 +23,7 @@ int main()
     sort(books.begin(), books.end());
 
     bool even = true;
-    bool sorted = false;
-
+    
     for (int j = 1; j < m; j++)
     {
         long long start = 0;
@@ -44,24 +43,16 @@ int main()
                  sort(books.begin() + start, books.end() - end);
               }
               start = i + 1;
-
-              if (i == n - 2)
-              {
-                 sorted = true;
-              }
            }
         }
 
-         if (!sorted)
+         if (even)
          {
-            if (even)
-            {
-               sort(books.rbegin(), books.rend() - start);
-            }
-            else
-            {
-               sort(books.begin() + start, books.end());
-            }
+            sort(books.rbegin(), books.rend() - start);
+         }
+         else
+         {
+            sort(books.begin() + start, books.end());
          }
          even = !even;
     }
@@ -70,5 +61,4 @@ int main()
     {
         cout << i.second << " ";
     }
-    return 0;
 }
